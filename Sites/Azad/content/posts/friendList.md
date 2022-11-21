@@ -6,6 +6,19 @@ date: 2022-05-25
 draft: false
 ---
 {{< friend-css >}}
+### BLOG
+
+{{< friend
+name="阮一峰的网络日志"
+url="https://www.ruanyifeng.com/blog/"
+logo="https://www.ruanyifeng.com/blog/images/person2.jpg"
+word="这里记录每周值得分享的科技内容，周五发布。">}}
+
+{{< friend
+name="巴托什切哈诺夫斯基"
+url="https://ciechanow.ski/archives/"
+logo=""
+word="知识型博客">}}
 
 ### JAVA
 
@@ -68,42 +81,36 @@ word="你的问题,主要在于读书不多而想得太多">}}
 name="Sukun的博客"
 url="https://sukun.xyz"
 logo=https://www.sukun.xyz/images/avatar.png"
-word="Sukun的博客，记录学习历程！"
->}}
+word="Sukun的博客，记录学习历程！">}}
 
 {{< friend
 name="Barney’s Blog"
 url="https://hugo.bnblogs.cc/"
 logo="https://hugo.bnblogs.cc/images/img/20220215001349.png"
-word="All the truth is simple"
->}}
+word="All the truth is simple">}}
 
 {{< friend
 name="低调小熊猫"
 url="https://ilovey.live"
 logo="https://uss.ilovey.live/img/avatar.jpg"
-word="读万卷书，行万里路，赚很多钱"
->}}
+word="读万卷书，行万里路，赚很多钱">}}
 
 ### 3D打印
 {{< friend
 name="概念清楚吧"
 url="https://sukun.xyz"
 logo=""
-word="写点平时科研的时候会关注的问题"
->}}
+word="写点平时科研的时候会关注的问题">}}
 
 ### 官方
 {{< friend
 name="dillonzq/LoveIt"
 url="/alien.png"
 logo="https://github.githubassets.com/images/mona-loading-default-static.svg"
-word="Hugo-LoveIt主题github"
->}}
+word="Hugo-LoveIt主题github">}}
 
 {{< friend
 name="LoveIt官方文档"
 url="https://hugoloveit.com/"
 logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
-word="Hugo-LoveIt主题官方文档"
->}}
+word="Hugo-LoveIt主题官方文档">}}
