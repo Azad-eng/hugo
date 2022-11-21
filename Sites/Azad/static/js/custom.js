@@ -1,0 +1,150 @@
+/* 控制台输出 */
+if(window.console) {
+	var cons = console; 
+	if(cons) { 
+		cons.group("O(∩_∩)O哈喽！");
+		cons.info("这位看代码的童鞋，不如留下你的友链来一起玩耍吧！"); 
+		cons.log("%Azad-eng's Blog", "background-image: linear-gradient(#063053, #395873, #5c7c99);font-size: 2rem;");
+		cons.info("==============================此乃分界线==============================");
+		cons.log("  █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗\n▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝\n▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗\n░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║\n░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝\n ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝\n ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░\n ░ ░    ░░░ ░ ░ ░        ░ ░░ ░\n          ░     ░ ░      ░  ░\n")
+		cons.groupEnd();
+	} 
+}
+
+/* 返回随机颜色 */
+function randomColor() {
+	return "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")";
+}
+
+/* 鼠标点击文字特效 */
+var a_idx = 0;
+var a_click = 1;
+var a = new Array( "！！下班打卡了吗？","富强", "民主","文明", "和谐", "赵子龙黄继光一身是胆", "设计狗程序猿遍体皆肝",  "什么？还没打卡！！？", "你还想拖到什么时候？", "现在", "立刻","马上","放下你的鼠标！打卡！！！","刘亦菲吴彦祖们~", "别点了", "求求你们别点了", "你还点", "你再点!", "有本事继续点!", "算你厉害┭┮﹏┭┮", "我投翔",
+			"我去买几个橘子", "你就站在此地", "不要走动", "w(·Д·)w",  "今天星期几？", "老哥稳", "带我飞", "厉害了word哥", "扎心了老铁", "还有这种操作?", "就是有这种操作",  "自由", "平等", "公正" ,"法治","他还只是个孩子", "请不要放过他",
+			"惊不惊喜?", "意不意外?", "我有一个大胆的想法", "你的良心不会痛吗", "你心里就没点b数吗", "没有,我很膨胀","秀", "天秀", "陈独秀", "蒂花之秀", "造化钟神秀",  
+			"我可能读了假书", "贫穷限制了我的想象力", "打call", "当然是选择原谅她啊", "还没下班？", "(#`O′)", "（/TДT)/", "_(:3」∠)_", "你有freestyle吗", "爱国", "敬业",  "诚信", "友善");
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+		/* 点击频率，点击几次就换文字 */
+		var frequency = 1;
+		if (a_click % frequency === 0) {
+			
+			var $i = $("<span/>").text(a[a_idx]);
+			a_idx = (a_idx + 1) % a.length;
+			var x = e.pageX,
+			y = e.pageY;
+			$i.css({
+				"z-index": 9999,
+				"top": y - 20,
+				"left": x,
+				"position": "absolute",
+				"font-weight": "bold",
+				"color": randomColor(),
+				"-webkit-user-select": "none",
+				"-moz-user-select": "none",
+				"-ms-user-select": "none",
+				"user-select": "none"
+			});
+			$("body").append($i);
+			$i.animate({
+				"top": y - 180,
+				"opacity": 0
+			},
+			1500,
+			function() {
+				$i.remove();
+			});
+			
+		}
+	a_click ++;
+		
+    });
+});
+
+/* 拉姆蕾姆回到顶部或底部按钮 */
+$(function() {
+	$("#lamu img").eq(0).click(function() {
+		$("html,body").animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	$("#leimu img").eq(0).click(function() {
+		$("html,body").animate({scrollTop:0},800);
+		return false;
+	});
+});
+
+function getCurrentDateString() {
+	var now = new Date();
+	var month = now.getMonth() + 1;
+	var day = now.getDate();
+	var hour = now.getHours();
+	return "" + now.getFullYear() + (month < 10 ? "0" + month : month) + (day < 10 ? "0" + day : day) + (hour < 10 ? "0" + hour : hour);
+}
+
+/* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
+window.onload = function() {
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener('visibilitychange', function() {
+    if(document.hidden) {
+      $('[rel="icon"]').attr('href', "/failure.ico");
+      $('[rel="shortcut icon"]').attr('href', "/failure.ico");
+      document.title = '喔唷，走啦！';
+      clearTimeout(titleTime);
+    } else {
+      $('[rel="icon"]').attr('href', "/favicon-32x32.png");
+      $('[rel="shortcut icon"]').attr('href', "/favicon-32x32.png");
+      document.title = '嘿嘿，欢迎回家！';
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+	}
+  });
+}
+
+/* 站点运行时间 */
+function runtime() {
+	window.setTimeout("runtime()", 1000);
+	/* 请修改这里的起始时间 */
+    let startTime = new Date('06/01/2022 02:00:00');
+    let endTime = new Date();
+    let usedTime = endTime - startTime;
+    let days = Math.floor(usedTime / (24 * 3600 * 1000));
+    let leavel = usedTime % (24 * 3600 * 1000);
+    let hours = Math.floor(leavel / (3600 * 1000));
+    let leavel2 = leavel % (3600 * 1000);
+    let minutes = Math.floor(leavel2 / (60 * 1000));
+    let leavel3 = leavel2 % (60 * 1000);
+    let seconds = Math.floor(leavel3 / (1000));
+    let runbox = document.getElementById('run-time');
+    runbox.innerHTML = '本站已运行<i class="far fa-clock fa-fw"></i> '
+        + ((days < 10) ? '0' : '') + days + ' 天 '
+        + ((hours < 10) ? '0' : '') + hours + ' 时 '
+        + ((minutes < 10) ? '0' : '') + minutes + ' 分 '
+        + ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
+}
+runtime();
+
+/* 轮播背景图片 */
+$(function () {
+	$.backstretch([
+		  "/images/background/01.png",
+		  "/images/background/02.png",
+		  "/images/background/03.png",
+		  "/images/background/04.jpg",
+		  "/images/background/05.jpg",
+		  "/images/background/06.jpg",
+		  "/images/background/07.png",
+		  "/images/background/08.png",
+		  "/images/background/09.png",
+		  "/images/background/10.png",
+		  "/images/background/11.jpg",
+		  "/images/background/12.jpg",
+		  "/images/background/13.jpg",
+		  "/images/background/14.jpg",
+		  "/images/background/15.jpg",
+		  "/images/background/16.jpg"
+	], { duration: 200000, fade: 15000 });
+});
+
+
